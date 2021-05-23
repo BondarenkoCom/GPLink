@@ -1,0 +1,13 @@
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\bin\Debug\netcoreapp3.1\GPLink.exe
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\bin\Debug\netcoreapp3.1\GPLink.deps.json
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\bin\Debug\netcoreapp3.1\GPLink.runtimeconfig.json
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\bin\Debug\netcoreapp3.1\GPLink.runtimeconfig.dev.json
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\bin\Debug\netcoreapp3.1\GPLink.dll
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\bin\Debug\netcoreapp3.1\GPLink.pdb
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.csprojAssemblyReference.cache
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.AssemblyInfoInputs.cache
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.AssemblyInfo.cs
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.csproj.CoreCompileInputs.cache
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.dll
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.pdb
+C:\Users\ABondarenko\sourceMy\GPLink\GPLink\obj\Debug\netcoreapp3.1\GPLink.genruntimeconfig.cache
