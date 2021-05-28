@@ -20,14 +20,6 @@ namespace BruteForceYanDisk.ConsoleApp
     }
 
 
-    //0)почитать про http client и поменять свой WEB client на Http client
-    //1)и делать закрытие webClient 
-    //2) Ловить EXCEPTION (302) через TRY/CATCH и выводить сломанные урлы в консоль >> парсить только ссылки без 302 EXEP
-    //https://docs.microsoft.com/ru-ru/dotnet/api/system.net.webclient?view=net-5.0 is work
-    //https://disk.yandex.ru/ is work
-    //https://www.lifeinvader.com/profile/sprunk not work
-    //https://www.google.com/ is work
-    //https://disk.yandex.ru/d/HQmwgcDCDig7Q   (Generate URL) Is not work
 
     //404 not found
     //302 found
