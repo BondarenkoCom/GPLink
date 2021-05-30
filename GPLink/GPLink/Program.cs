@@ -13,23 +13,47 @@ namespace BruteForceYanDisk.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Loading...");
-            GenerateCharURL.BruteYanUrls("https://disk.yandex.ru/d/H-mwgcDCDig7Q");
-            GenerateCharURL.DownloadStringURL("https://disk.yandex.ru/d/HSmwgcDCDig7Q");
+            //Generate URL
+            //GenerateCharURL.BruteYanUrls("https://disk.yandex.ru/d/H-mwgcDCDig7Q");
+            //Open txt
+            Console.ForegroundColor = ConsoleColor.Green;
+            //GenerateCharURL.PlaceNextLink("C:\\Users\\ABondarenko\\Desktop\\URLresult.txt");
+            //check and parse Link
+            Console.ForegroundColor = ConsoleColor.Red;
+            GenerateCharURL.DownloadStringURL("https://disk.yandex.ru/d/H-mwgcDCDig7Q");
 
         }
     }
 
+     //https://docs.microsoft.com/ru-ru/dotnet/api/system.net.webclient?view=net-5.0 is work
+    //https://disk.yandex.ru/ is work
+    //https://www.lifeinvader.com/profile/sprunk not work
+    //https://www.google.com/ is work
+    //https://disk.yandex.ru/d/HQmwgcDCDig7Q   (Generate URL) Is not work
 
-
-    //404 not found
-    //302 found
     public static class GenerateCharURL
     {
+
+        public static void PlaceNextLink(string UrlPath)
+        {
+            Console.WriteLine("PlaceNextLink - work");
+            //Console.WriteLine(Link);
+
+            //string UrlPath;
+
+            using (FileStream fstream = File.OpenRead($"{UrlPath}"))
+            {
+                byte[] array = new byte[fstream.Length];
+                fstream.Read(array, 0, array.Length);
+                string textFromFile = System.Text.Encoding.Default.GetString(array);
+                Console.WriteLine($"Text - {textFromFile}");
+            }
+        }
+
+
         public static void DownloadStringURL(string url)
         {
-
             WebClient client = new WebClient();
-
             string docPathUrl = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             try
@@ -53,15 +77,36 @@ namespace BruteForceYanDisk.ConsoleApp
             }
             catch
             {
-                Console.WriteLine("ошибка");
-                GenerateCharURL.DownloadStringURL("https://www.google.com/");
-                //DownloadStringURL(GenerateCharURL.GetYanUrls);
 
-                //DownloadStringURL("https://disk.yandex.ru/d/HSmwgcDCDig7Q");
+                Console.WriteLine($"ошибка - Exception = {url}");
+                //GenerateCharURL.PlaceNextLink($"Method Work");
 
+                string UrlForPath = "C:\\Users\\ABondarenko\\Desktop\\URLresult.txt";
 
+                using (FileStream fstream = File.OpenRead($"{UrlForPath}"))
+                {
+                    byte[] array = new byte[fstream.Length];
+                    fstream.Read(array, 0, array.Length);
+                    string textFromFile = System.Text.Encoding.Default.GetString(array);
+                    Console.WriteLine($"Lenght - {textFromFile.Length}");
+                    Console.WriteLine($"Text - {textFromFile}");
+
+                    //fstream.Seek(-5, SeekOrigin.End);
+
+                    //byte[] output = new byte[4];
+                    //fstream.Read(output, 0, output.Length);
+                    // декодируем байты в строку
+                    //string textFromFile = Encoding.Default.GetString(output);
+                    //Console.WriteLine($"Length - {textFromFile.Length}");
+                    //Console.WriteLine($"Текст из файла: {textFromFile}"); // worl
+                }
+          
+                //GenerateCharURL.DownloadStringURL("https://www.google.com/");
             }
         }
+
+       
+
 
         //сделать запись в базу и из базы вытаскивать  в веб интерфейс
         public static void BruteYanUrls(string YanUrl)
@@ -71,12 +116,15 @@ namespace BruteForceYanDisk.ConsoleApp
 
             Console.WriteLine($"Original URL {UrlYandex}");
 
+    
             for (int index = 0; index < charForBrut.Length; index++)
             {
                 var item = charForBrut[index];
 
-                var BruteForceString = UrlYandex.Replace("-", item);
-                Console.WriteLine("After :{0} {1} ", Environment.NewLine, BruteForceString);
+                string BruteForceString = UrlYandex.Replace("-", item);
+
+                Console.WriteLine("{0} {1}", Environment.NewLine, BruteForceString);    
+                //return BruteForceString;
             }
 
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -87,10 +135,9 @@ namespace BruteForceYanDisk.ConsoleApp
                     var item = charForBrut[index];
 
                     var BruteForceString = UrlYandex.Replace("-", item);
-                    outputFile.WriteLine("After :{0} {1}   ", Environment.NewLine, BruteForceString);
+                    outputFile.WriteLine("{0} {1}", Environment.NewLine, BruteForceString);
                 }
-
-        }
+        }     
     }
-
+    
 }
